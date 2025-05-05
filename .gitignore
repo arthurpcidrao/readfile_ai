@@ -1,0 +1,21 @@
+# Dependências
+node_modules/
+apps/frontend/.next
+apps/backend/dist
+
+# Ambiente
+.env
+.env.local
+.env.development
+.env.production
+
+# Docker
+docker-compose.override.yml
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Sistemas operacionais
+.DS_Store
+Thumbs.db

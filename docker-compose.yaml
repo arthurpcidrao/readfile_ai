@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  frontend:
+    container_name: readfile_ai_frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/frontend:/app/apps/frontend
+      - /app/apps/frontend/node_modules
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+    networks:
+      - readfile-network
+
+  backend:
+    container_name: readfile_ai_backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./apps/backend:/app/apps/backend
+      - /app/apps/backend/node_modules
+    environment:
+      - NODE_ENV=development
+    networks:
+      - readfile-network
+
+networks:
+  readfile-network:
+    driver: bridge
