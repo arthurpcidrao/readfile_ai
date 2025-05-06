@@ -30,6 +30,7 @@ services:
       - "3001:3001"
     environment:
       - NODE_ENV=development
+      - API_KEY=${API_KEY}
     networks:
       - readfile-network
 

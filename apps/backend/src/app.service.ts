@@ -2,7 +2,11 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  getStatus() {
+    return { 
+      status: 'online',
+      message: 'Readfile AI API',
+      timestamp: new Date().toISOString()
+    };
   }
 }
